@@ -22,6 +22,7 @@ public class Controller {
     private int i = 0;
     private static HashSet<String> hashSet = new HashSet();
 
+
     public static void init(){
         try {
             Scanner scanner = new Scanner(file);
@@ -34,6 +35,14 @@ public class Controller {
             e.printStackTrace();
         }
 
+
+    }
+
+    @GetMapping("/deleteAll")
+    public void delete(@RequestParam String pass){
+        if(pass.equals("123")){
+            file.delete();
+        }
 
     }
 
