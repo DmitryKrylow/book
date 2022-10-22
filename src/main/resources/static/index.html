@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Вход</title>
+    <title>Login Form on HTML5</title>
+
+
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Paper Stack</title>
+    <link rel="stylesheet" type="text/css" href="table_style.css" />
 </head>
 <body>
 <div class="container">
-    <div class="centered">
-        <h3>
-            Введите логин и ключ доступа
-        </h3>
-        <form name='loginform' method='get' action='/hr/allUser'>
-            <p><b>Логин:</b><br>
-                <input type='text' class="form-control" name='name' size='40'>
-            </p>
-            <p><b>Ключ доступа:</b><br>
-                <input type='text' class="form-control" name='key' size='40'>
-            </p>
-            <button class="btn btn-primary" type='submit'>Отправить</button>
+    <section id="content">
+        <form action="/hr/allUser" method="get">
+            <h1>HR Admin</h1>
+            <div>
+                <input type="text" placeholder="Логин" required="" id="username" name="name"/>
+            </div>
+            <div>
+                <input type="text" placeholder="Пароль" required="" id="password" name="key" />
+            </div>
+            <div>
+                <input type="submit" value="Войти" />
+            </div>
         </form>
-    </div>
+
+    </section>
 </div>
+</body>
+</html>
+
+
 </body>
 </html>

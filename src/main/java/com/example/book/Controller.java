@@ -3,7 +3,6 @@ package com.example.book;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,7 +17,6 @@ public class Controller {
     private static File file = new File("file.txt");
     private int i = 0;
     private static HashSet<String> hashSet = new HashSet();
-
 
     public static void init(){
         try {

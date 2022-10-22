@@ -10,7 +10,7 @@
     text-align: center;
   }
   th {
-    background: #418a78;
+    background: #2098e3;
     color: white;
     text-shadow: 0 1px 1px #2D2020;
     padding: 10px 20px;
@@ -32,7 +32,7 @@
   }
   td {
     padding: 10px 20px;
-    background: #F8E391;
+    background: #D8E6F3;
   }
   tr:last-child td:first-child {
     border-radius: 0 0 0 10px;
@@ -44,28 +44,213 @@
     border-right: none;
   }
 </style>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  @font-face {
+    font-family: Roboto;
+    src: url("static/fonts/Roboto.ttf");
+  }
+  @font-face {
+    font-family: Roboto;
+    src: url("static/fonts/Robotobold.ttf");
+    font-weight: bold;
+  }
+  body {
+    font-family: Roboto, sans-serif;
+  }
+  .header {
+    border-bottom: 2px solid #E5E5E5;
+    padding: 5px 0;
+    width: auto;
+  }
+
+  .header .container {
+    display: flex;
+    align-items: center;
+  }
+  .logo:hover img {
+    transform: scale(1.1);
+  }
+
+  .button {
+    margin-right: 20px;
+    padding: 20px;
+    width: 100px;
+    height: 10px;
+    background: white;
+    border: 2px solid indianred;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: indianred;
+    transition: background-color .5s;
+  }
+  .button:hover {
+    cursor: pointer;
+    background: rosybrown;
+  }
+  .logo img {
+    vertical-align: bottom;
+    transition: all .3s;
+    margin-left: 2px;
+  }
+  .avatarka {
+    padding-right: 50px;
+  }
+  .avatarka:hover {
+    transform: scale(1.2);
+  }
+  .title-example {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1.title-example{
+    font-size: 30px; /* Размер шрифта */
+    color: #404040; /* Цвет заголовка */
+    text-align: center; /* Текст по центру */
+  }
+  /*  CSS код для линии над заголовком */
+  h1.title-example:before {
+    content: '';
+    display: block;
+    height: 2.2px; /* Высота линии */
+    background: cornflowerblue; /* Цвет линии */
+    width: 150px; /* Ширина линии до наведения */
+    margin: 0 auto 10px; /* Отступ с боков по центру и снизу */
+    transition: 1s; /* Время, за которое линия возвращается после наведения */
+  }
+  h1.title-example:hover:before {
+    width: 250px; /* Ширина линии при наведении */
+    transition: ease-out 1s; /* Время, за которое линия расширяется при наведении */
+  }
+  /*  CSS код для линии под заголовком */
+  h1.title-example:after {
+    content: '';
+    display: block;
+    height: 2px; /* Высота линии */
+    background: cornflowerblue; /* Цвет линии */
+    width: 150px; /* Ширина линии до наведения */
+    margin: 10px auto 0; /* Отступ с боков по центру и сверху */
+    transition: 1s; /* Время, за которое линия возвращается после наведения */
+  }
+  h1.title-example:hover:after {
+    width: 250px; /* Ширина линии при наведении */
+    transition: ease-out 1s; /* Время, за которое линия расширяется при наведении */
+  }
+  .link-ease-in-out {
+    font-size: 20px;
+    margin-right: 40px;
+  }
+  .link-ease-in-out a {
+    display: inline-block;
+    color: #030305; /* Цвет обычной ссылки */
+    line-height: 1;
+    text-decoration: none; /* Убираем подчеркивание */
+    cursor: pointer;
+  }
+  .link-ease-in-out a:after {
+    background-color: black; /* Цвет линии при наведении на нее курсора мыши */
+    display: block;
+    content: "";
+    height: 2px; /* Высота линии */
+    width: 0%;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+  }
+  .link-ease-in-out a:hover:after,
+  .link-ease-in-out a:focus:after {
+    width: 100%;
+  }
+  .main-title {
+    color: #030305;
+    font-size: 30px;
+  }
+  .footer {
+    border-top: 1px solid #E5E5E5;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+    background: #202020;
+  }
+  .footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .rights {
+    font-size: 15px;
+    color: #E5E5E5;
+    margin-right: 40px;
+  }
+
+  .body {
+    height: 100%;
+  }
+</style>
 <head>
-  <title>User Table</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Сервис HR-helper</title>
+<!--  <link rel="stylesheet" th:href="@{style.css}">-->
 </head>
 <body>
-<table class="sortable">
-  <tr>
-    <th>ID</th>
-    <th>Фамилия</th>
-    <th>Имя</th>
-    <th>Отечество</th>
-    <th>Желаемая ЗП</th>
-    <th>Специальность</th>
-  </tr>
-  <tr th:each="user:${users}">
-    <td th:text="${user.id}"></td>
-    <td th:text="${user.name}"> </td>
-    <td th:text="${user.surname}"></td>
-    <td th:text="${user.lastame}"></td>
-    <td th:text="${user.money}"></td>
-    <td th:text="${user.spec}"></td>
-  </tr>
-</table>
+<header class="header">
+<div class="container">
+  <div class="logo">
+    <img th:src="@{/images/logo.png}" alt="Logo" width="80" height="80">
+  </div>
+  <h1 class="title-example">Сервис HR-helper</h1>
+  <div class="link-ease-in-out">
+    <a href="#" title="lk">Личный кабинет</a>
+  </div>
+
+  <div class="avatarka">
+    <img th:src="@{/images/avatarka.png}" alt="avatarka" width="50" height="50">
+  </div>
+  <button class="button" type="button" id="out">Выйти</button>
+</div>
+</header>
+<section class="main">
+
+  <div class="main-info">
+    <h1 class="main-title">Список соискателей</h1>
+  </div>
+  <table class="sortable">
+    <tr>
+      <th>ID</th>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Отчество</th>
+      <th>Желаемая ЗП</th>
+      <th>Специальность</th>
+    </tr>
+    <tr th:each="user:${users}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.name}"> </td>
+      <td th:text="${user.surname}"></td>
+      <td th:text="${user.lastame}"></td>
+      <td th:text="${user.money}"></td>
+      <td th:text="${user.spec}"></td>
+    </tr>
+  </table>
+
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="logo">
+      <img th:src="@{/images/logo.png}" alt="Logo" width="60" height="60">
+    </div>
+    <div class="rights">&#169; 2022, Все права защищены</div>
+  </div>
+</footer>
 </body>
 </html>
