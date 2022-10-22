@@ -41,7 +41,7 @@ public class Controller {
     @GetMapping("/deleteAll")
     public void delete(@RequestParam String pass){
         if(pass.equals("123")){
-            file.delete();
+            System.out.println(file.delete());
         }
 
     }
@@ -74,26 +74,6 @@ public class Controller {
 
     @GetMapping("/allUser")
     public String show(Model model){
-        /*Scanner scanner = null;
-        try {
-            scanner = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            *//*while (scanner.hasNext()){
-                String str = scanner.nextLine();
-                String[] parameters = str.split("\\|");
-                String id = parameters[0];
-                if(!hashSet.contains(id)){
-                    hashSet.add(id);
-                    list.add(new User(parameters));
-                    i++;
-                }
-            }*//*
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
         model.addAttribute("users",list);
         return "users";
     }
