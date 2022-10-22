@@ -40,7 +40,9 @@ public class Controller {
     public String delete(@RequestParam String pass, HttpServletRequest request){
         if(pass.equals("123")){
            file.delete();
-            list.clear();
+           list.clear();
+           hashSet.clear();
+           i = 0;
         }
         System.out.println(request.getRequestURL());
         return "redirect:" + request.getRequestURL().substring(0,request.getRequestURL().indexOf("/deleteAll")) + "/allUser";
