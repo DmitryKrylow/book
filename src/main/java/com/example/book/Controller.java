@@ -47,8 +47,6 @@ public class Controller {
         }
 
     }
-
-
     @GetMapping("/addUser")
     public void add(@RequestParam String pr1){
         addUser(pr1.split("\\|"));
