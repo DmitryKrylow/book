@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.crypto.Data;
 import java.io.*;
 import java.lang.reflect.Array;
@@ -34,25 +35,20 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
-
     @GetMapping("/deleteAll")
-    public void delete(@RequestParam String pass){
+    public String delete(@RequestParam String pass, HttpServletRequest request){
         if(pass.equals("123")){
-            System.out.println(file.delete());
+           file.delete();
             list.clear();
-
         }
-
+        System.out.println(request.getRequestURL());
+        return "redirect:" + request.getRequestURL().substring(0,request.getRequestURL().indexOf("/deleteAll")) + "/allUser";
     }
     @GetMapping("/addUser")
     public void add(@RequestParam String pr1){
         addUser(pr1.split("\\|"));
     }
-
-
     public void addUser(String[] parameters){
         try {
             FileWriter fw = new FileWriter(file,true);
@@ -69,9 +65,7 @@ public class Controller {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
-
     @GetMapping("/allUser")
     public String show(Model model){
         model.addAttribute("users",list);
