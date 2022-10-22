@@ -3,6 +3,7 @@ package com.example.book;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -64,8 +65,12 @@ public class Controller {
         }
     }
     @GetMapping("/allUser")
-    public String show(Model model){
-        model.addAttribute("users",list);
-        return "users";
+    public String show(Model model, @RequestParam String name, @RequestParam String key){
+        if(name.equals("123") && key.equals("123")) {
+            model.addAttribute("users", list);
+
+            return "users";
+        }
+        return "ACCES DENIED";
     }
 }
