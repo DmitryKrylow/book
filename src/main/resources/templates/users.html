@@ -2,51 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <style>
-    table {
-        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-        font-size: 14px;
-        border-collapse: collapse;
-        text-align: center;
-    }
-    th, td:first-child {
-        background: #AFCDE7;
-        color: white;
-        padding: 10px 20px;
-    }
-    th, td {
-        border-style: solid;
-        border-width: 0 1px 1px 0;
-        border-color: white;
-    }
-    td {
-        background: #D8E6F3;
-    }
-    th:first-child, td:first-child {
-        text-align: left;
-    }
+  table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  th, td:first-child {
+    background: #61a6ec;
+    color: white;
+    padding: 10px 20px;
+  }
+  th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+  }
+  td {
+    background: #b3d0f5;
+  }
+  th:first-child, td:first-child {
+    text-align: left;
+  }
 </style>
 <head>
-    <title>User Table</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>User Table</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <table class="sortable">
-    <tr>
-        <th>ID</th>
-        <th>Фамилия</th>
-        <th>Имя</th>
-        <th>Отечество</th>
-        <th>Желаемая ЗП</th>
-        <th>Специальность</th>
-    </tr>
-    <tr th:each="user:${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"> </td>
-        <td th:text="${user.surname}"></td>
-        <td th:text="${user.lastame}"></td>
-        <td th:text="${user.money}"></td>
-        <td th:text="${user.spec}"></td>
-    </tr>
+  <tr>
+    <th>ID</th>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Отечество</th>
+    <th>Желаемая ЗП</th>
+    <th>Специальность</th>
+  </tr>
+  <tr th:each="user:${users}">
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.name}"> </td>
+    <td th:text="${user.surname}"></td>
+    <td th:text="${user.lastame}"></td>
+    <td th:text="${user.money}"></td>
+    <td th:text="${user.spec}"></td>
+  </tr>
 </table>
 </body>
 </html>
