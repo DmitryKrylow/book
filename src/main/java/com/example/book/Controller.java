@@ -42,6 +42,8 @@ public class Controller {
     public void delete(@RequestParam String pass){
         if(pass.equals("123")){
             System.out.println(file.delete());
+            list.clear();
+
         }
 
     }
