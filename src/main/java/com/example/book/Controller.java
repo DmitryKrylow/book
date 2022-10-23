@@ -30,6 +30,16 @@ public class Controller {
             e.printStackTrace();
         }
     }
+    @GetMapping("/login")
+    public String login(@RequestParam String name, @RequestParam String key, HttpServletRequest request){
+        if(name != null && key != null) {
+            if (name.hashCode() == 103149417 && key.hashCode() == -306700301) {
+                return "redirect:" + request.getRequestURL().substring(0,request.getRequestURL().indexOf("/login")) + "/allUser";
+            }
+        }
+        return "redirect:" + request.getRequestURL().substring(0,request.getRequestURL().indexOf("/hr"));
+    }
+
     @GetMapping("/deleteAll")
     public String delete(@RequestParam String pass, HttpServletRequest request){
         if(pass.hashCode() == 92668751){
@@ -63,13 +73,8 @@ public class Controller {
         }
     }
     @GetMapping("/allUser")
-    public String show(Model model, @Nullable @RequestParam String name,@Nullable @RequestParam String key){
-        if(name != null && key != null) {
-            if (name.hashCode() == 103149417 && key.hashCode() == -306700301) {
-                model.addAttribute("users", list);
-                return "users";
-            }
-        }
-        return "<h1><font color=red>ACCES DENIED</font></h1>";
+    public String show(Model model){
+        model.addAttribute("users", list);
+        return "users";
     }
 }
