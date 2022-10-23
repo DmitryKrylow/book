@@ -227,19 +227,15 @@
   <table class="sortable">
     <tr>
       <th>ID</th>
-      <th>Фамилия</th>
-      <th>Имя</th>
-      <th>Отчество</th>
-      <th>Желаемая ЗП</th>
+      <th>Имя пользователя</th>
       <th>Специальность</th>
+      <th>Статус собеседования</th>
     </tr>
     <tr th:each="user:${users}">
       <td th:text="${user.id}"></td>
       <td th:text="${user.name}"> </td>
-      <td th:text="${user.surname}"></td>
-      <td th:text="${user.lastame}"></td>
-      <td th:text="${user.money}"></td>
       <td th:text="${user.spec}"></td>
+      <td th:text="${user.sost}"></td>
     </tr>
   </table>
 

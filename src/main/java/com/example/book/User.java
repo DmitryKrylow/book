@@ -5,18 +5,18 @@ import javax.lang.model.element.NestingKind;
 public class User {
     private String id;
     private String name;
-    private String surname;
-    private String lastame;
-    private String money;
+  //  private String money;
     private String spec;
+    private String sost;
+    private String format;
 
     public User(String[] parameters) {
         this.id = parameters[0];
         this.name = parameters[1];
-        this.surname = parameters[2];
-        this.lastame = parameters[3];
-        this.money = parameters[4];
-        this.spec = parameters[5];
+        this.spec = parameters[2];
+        this.sost = parameters[3];
+        //this.format = parameters[4];
+
     }
 
     public String getId() {
@@ -35,35 +35,27 @@ public class User {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getLastame() {
-        return lastame;
-    }
-
-    public void setLastame(String lastame) {
-        this.lastame = lastame;
-    }
-
-    public String getMoney() {
-        return money;
-    }
-
-    public void setMoney(String money) {
-        this.money = money;
-    }
-
     public String getSpec() {
         return spec;
     }
 
     public void setSpec(String spec) {
         this.spec = spec;
+    }
+
+    public String getSost() {
+        return sost;
+    }
+
+    public void setSost(String sost) {
+        this.sost = sost;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 }
