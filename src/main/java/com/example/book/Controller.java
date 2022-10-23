@@ -1,6 +1,7 @@
 package com.example.book;
 
 
+import org.springframework.lang.Nullable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,6 @@ public class Controller {
     private static File file = new File("file.txt");
     private int i = 0;
     private static HashSet<String> hashSet = new HashSet();
-
     public static void init(){
         try {
             Scanner scanner = new Scanner(file);
@@ -32,7 +32,7 @@ public class Controller {
     }
     @GetMapping("/deleteAll")
     public String delete(@RequestParam String pass, HttpServletRequest request){
-        if(pass.equals("123")){
+        if(pass.hashCode() == 92668751){
            file.delete();
            list.clear();
            hashSet.clear();
@@ -63,12 +63,13 @@ public class Controller {
         }
     }
     @GetMapping("/allUser")
-    public String show(Model model, @RequestParam String name, @RequestParam String key){
-        if(name.equals("123") && key.equals("123")) {
-            model.addAttribute("users", list);
-
-            return "users";
+    public String show(Model model, @Nullable @RequestParam String name,@Nullable @RequestParam String key){
+        if(name != null && key != null) {
+            if (name.hashCode() == 103149417 && key.hashCode() == -306700301) {
+                model.addAttribute("users", list);
+                return "users";
+            }
         }
-        return "ACCES DENIED";
+        return "<h1><font color=red>ACCES DENIED</font></h1>";
     }
 }
